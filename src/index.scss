@@ -27,6 +27,9 @@ img {
   height: 100%;
   max-width: 100%;
 }
+input {
+  outline: none;
+}
 
 .wrapper {
   display: flex;
@@ -42,4 +45,44 @@ img {
 .container {
   max-width: 960px;
   margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 30px;
+  padding: 0 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  transition: border 0.3s;
+}
+.input:hover {
+  border-bottom: 1px solid #7d7ae1;
+}
+.input:focus {
+  border-bottom: 1px solid #7d7ae1;
+}
+.input::placeholder {
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-dark-main);
+  opacity: 1;
+  transition: color 0.3s;
+}
+.input:focus::placeholder {
+  color: #ccc;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.btn--blue {
+  background-color: #3535e2;
+  color: #fff;
+  padding: 7px 16px;
+  font-size: 18px;
+  border-radius: 5px;
 }
