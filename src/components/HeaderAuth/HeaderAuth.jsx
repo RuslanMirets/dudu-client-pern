@@ -1,22 +1,34 @@
+import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Context } from '../..';
+import { removeToken } from '../../http/userApi';
+import { LOGIN_ROUTE } from '../../utils/consts';
 import styles from './HeaderAuth.module.scss';
 
-const HeaderAuth = () => {
+const HeaderAuth = observer(() => {
   const { user } = useContext(Context);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    removeToken();
+    user.setUser({});
+    user.setIsAuth(false);
+  };
 
   return (
     <div className={styles.user}>
       {user.isAuth ? (
-        <div className={styles.logout}>Выйти</div>
+        <div className={styles.logout} onClick={() => logout()}>
+          Выйти
+        </div>
       ) : (
-        <Link className={styles.login} to="/login">
+        <div className={styles.login} onClick={() => navigate(LOGIN_ROUTE)}>
           <img src="/static/images/login.png" alt="Login" />
-        </Link>
+        </div>
       )}
     </div>
   );
-};
+});
 
 export default HeaderAuth;
