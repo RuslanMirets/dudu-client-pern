@@ -6,11 +6,13 @@ import styles from './AppRouter.module.scss';
 const AppRouter = () => {
   return (
     <main className={styles.main}>
-      <Routes>
-        {publicRoutes.map(({ path, Component }) => (
-          <Route key={path} path={path} element={Component} exact />
-        ))}
-      </Routes>
+      <div className="container">
+        <Routes>
+          {publicRoutes.map(({ path, Component }) => (
+            <Route key={path} path={path} element={Component} exact />
+          ))}
+        </Routes>
+      </div>
     </main>
   );
 };
