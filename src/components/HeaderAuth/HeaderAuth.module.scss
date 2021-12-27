@@ -1,8 +1,14 @@
+.user {
+  margin-left: 40px;
+}
 .login {
+  display: block;
   width: 20px;
   height: 20px;
-  margin-left: 40px;
   img {
     cursor: pointer;
   }
+}
+.logout {
+  cursor: pointer;
 }
